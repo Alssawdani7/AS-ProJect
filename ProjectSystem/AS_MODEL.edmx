@@ -1,0 +1,1059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TB_Area">
+          <Key>
+            <PropertyRef Name="area_id" />
+          </Key>
+          <Property Name="area_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="area_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TB_Block">
+          <Key>
+            <PropertyRef Name="block_id" />
+          </Key>
+          <Property Name="block_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="block_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="area_id" Type="int" />
+          <Property Name="coll_id" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_CenterMeter">
+          <Key>
+            <PropertyRef Name="centerMeter_id" />
+          </Key>
+          <Property Name="centerMeter_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="centerMeter_no" Type="int" />
+          <Property Name="area_id" Type="int" />
+          <Property Name="number_meters" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_Collector">
+          <Key>
+            <PropertyRef Name="coll_id" />
+          </Key>
+          <Property Name="coll_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="coll_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="coll_phone" Type="int" />
+          <Property Name="coll_balance" Type="float" />
+          <Property Name="coll_status" Type="bit" />
+        </EntityType>
+        <EntityType Name="TB_Customer">
+          <Key>
+            <PropertyRef Name="cust_id" />
+          </Key>
+          <Property Name="cust_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="meter_id" Type="int" />
+          <Property Name="cust_name" Type="nvarchar" MaxLength="70" />
+          <Property Name="cust_address" Type="nvarchar" MaxLength="70" />
+          <Property Name="cust_phone" Type="int" />
+          <Property Name="activity" Type="nvarchar" MaxLength="20" />
+          <Property Name="cust_card" Type="image" />
+          <Property Name="balance" Type="float" />
+          <Property Name="area_id" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_Cycle">
+          <Key>
+            <PropertyRef Name="cycle_id" />
+          </Key>
+          <Property Name="cycle_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cycle_name" Type="nvarchar" MaxLength="15" />
+          <Property Name="from_date" Type="date" />
+          <Property Name="to_date" Type="date" />
+          <Property Name="cycle_status" Type="bit" />
+        </EntityType>
+        <EntityType Name="TB_LogCustomer">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="meter_id" Type="int" />
+          <Property Name="bill_type" Type="nvarchar" MaxLength="20" />
+          <Property Name="bill_no" Type="int" />
+          <Property Name="cust_debtor" Type="float" />
+          <Property Name="cust_Creditor" Type="float" />
+          <Property Name="cust_balance" Type="float" />
+          <Property Name="log_date" Type="date" />
+        </EntityType>
+        <EntityType Name="TB_Meter">
+          <Key>
+            <PropertyRef Name="meter_id" />
+          </Key>
+          <Property Name="meter_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="meter_no" Type="int" />
+          <Property Name="centerMeter_id" Type="int" />
+          <Property Name="sub_id" Type="int" />
+          <Property Name="meter_read" Type="float" />
+          <Property Name="meter_status" Type="bit" />
+        </EntityType>
+        <EntityType Name="TB_Read">
+          <Key>
+            <PropertyRef Name="read_id" />
+          </Key>
+          <Property Name="read_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="meter_id" Type="int" Nullable="false" />
+          <Property Name="cycle_id" Type="int" />
+          <Property Name="pre_read" Type="float" />
+          <Property Name="current_read" Type="float" />
+          <Property Name="consume" Type="float" StoreGeneratedPattern="Computed" />
+          <Property Name="consume_price" Type="float" />
+          <Property Name="date_read" Type="date" />
+          <Property Name="later_price" Type="float" />
+        </EntityType>
+        <EntityType Name="TB_Receipt">
+          <Key>
+            <PropertyRef Name="receipt_id" />
+          </Key>
+          <Property Name="receipt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="receipt_no" Type="int" />
+          <Property Name="cust_id" Type="int" />
+          <Property Name="coll_id" Type="int" />
+          <Property Name="money" Type="float" />
+          <Property Name="receipt_date" Type="date" />
+          <Property Name="detail" Type="nvarchar" MaxLength="70" />
+        </EntityType>
+        <EntityType Name="TB_Subscription">
+          <Key>
+            <PropertyRef Name="sub_id" />
+          </Key>
+          <Property Name="sub_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sub_name" Type="nvarchar" MaxLength="20" />
+          <Property Name="fees" Type="float" />
+          <Property Name="unit_price" Type="float" />
+          <Property Name="min_cost" Type="float" />
+        </EntityType>
+        <EntityType Name="TB_User">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_user" Type="nvarchar" MaxLength="20" />
+          <Property Name="user_pass" Type="nvarchar" MaxLength="20" />
+          <Property Name="user_type" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AS_DB.dbo.View_Bill' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Bill">
+          <Key>
+            <PropertyRef Name="meter_id" />
+            <PropertyRef Name="cycle_id" />
+          </Key>
+          <Property Name="اسم المشترك" Type="nvarchar" MaxLength="70" />
+          <Property Name="meter_id" Type="int" Nullable="false" />
+          <Property Name="رقم العداد" Type="int" />
+          <Property Name="العنوان" Type="nvarchar" MaxLength="50" />
+          <Property Name="الاشتراك" Type="nvarchar" MaxLength="20" />
+          <Property Name="النشاط" Type="nvarchar" MaxLength="20" />
+          <Property Name="cycle_id" Type="int" Nullable="false" />
+          <Property Name="رقم الدورة" Type="nvarchar" MaxLength="15" />
+          <Property Name="القراءة السابقة" Type="float" />
+          <Property Name="القراءة الحالية" Type="float" />
+          <Property Name="الإستهلاك" Type="float" />
+          <Property Name="المبلغ" Type="float" />
+          <Property Name="المتأخرات" Type="float" />
+          <Property Name="الحد الأدنى" Type="float" />
+          <Property Name="إجمالي المبلغ" Type="float" />
+          <Property Name="تاريخ القراءة" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AS_DB.dbo.View_Customer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Customer">
+          <Key>
+            <PropertyRef Name="cust_id" />
+          </Key>
+          <Property Name="cust_id" Type="int" Nullable="false" />
+          <Property Name="اسم المشترك" Type="nvarchar" MaxLength="70" />
+          <Property Name="رقم العداد" Type="int" />
+          <Property Name="العنوان" Type="nvarchar" MaxLength="70" />
+          <Property Name="الجوال" Type="int" />
+          <Property Name="آخر قراءة" Type="float" />
+          <Property Name="الرصيد" Type="float" />
+          <Property Name="الحالة" Type="bit" />
+        </EntityType>
+        <Association Name="FK_TB_Block_TB_ARea">
+          <End Role="TB_Area" Type="Self.TB_Area" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Block" Type="Self.TB_Block" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Area">
+              <PropertyRef Name="area_id" />
+            </Principal>
+            <Dependent Role="TB_Block">
+              <PropertyRef Name="area_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Block_TB_Block1">
+          <End Role="TB_Collector" Type="Self.TB_Collector" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Block" Type="Self.TB_Block" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Collector">
+              <PropertyRef Name="coll_id" />
+            </Principal>
+            <Dependent Role="TB_Block">
+              <PropertyRef Name="coll_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_CenterMeter_TB_Area">
+          <End Role="TB_Area" Type="Self.TB_Area" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_CenterMeter" Type="Self.TB_CenterMeter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Area">
+              <PropertyRef Name="area_id" />
+            </Principal>
+            <Dependent Role="TB_CenterMeter">
+              <PropertyRef Name="area_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Customer_TB_Meter">
+          <End Role="TB_Meter" Type="Self.TB_Meter" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Customer" Type="Self.TB_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Meter">
+              <PropertyRef Name="meter_id" />
+            </Principal>
+            <Dependent Role="TB_Customer">
+              <PropertyRef Name="meter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_LogCustomer_TB_Meter">
+          <End Role="TB_Meter" Type="Self.TB_Meter" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_LogCustomer" Type="Self.TB_LogCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Meter">
+              <PropertyRef Name="meter_id" />
+            </Principal>
+            <Dependent Role="TB_LogCustomer">
+              <PropertyRef Name="meter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Meter_TB_CenterMeter">
+          <End Role="TB_CenterMeter" Type="Self.TB_CenterMeter" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Meter" Type="Self.TB_Meter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CenterMeter">
+              <PropertyRef Name="centerMeter_id" />
+            </Principal>
+            <Dependent Role="TB_Meter">
+              <PropertyRef Name="centerMeter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Meter_TB_Subscription">
+          <End Role="TB_Subscription" Type="Self.TB_Subscription" Multiplicity="0..1" />
+          <End Role="TB_Meter" Type="Self.TB_Meter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Subscription">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="TB_Meter">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Read_TB_Cycle">
+          <End Role="TB_Cycle" Type="Self.TB_Cycle" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Read" Type="Self.TB_Read" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Cycle">
+              <PropertyRef Name="cycle_id" />
+            </Principal>
+            <Dependent Role="TB_Read">
+              <PropertyRef Name="cycle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Read_TB_Meter">
+          <End Role="TB_Meter" Type="Self.TB_Meter" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Read" Type="Self.TB_Read" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Meter">
+              <PropertyRef Name="meter_id" />
+            </Principal>
+            <Dependent Role="TB_Read">
+              <PropertyRef Name="meter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Receipt_TB_Collector">
+          <End Role="TB_Collector" Type="Self.TB_Collector" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Receipt" Type="Self.TB_Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Collector">
+              <PropertyRef Name="coll_id" />
+            </Principal>
+            <Dependent Role="TB_Receipt">
+              <PropertyRef Name="coll_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Receipt_TB_Customer">
+          <End Role="TB_Customer" Type="Self.TB_Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Receipt" Type="Self.TB_Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Customer">
+              <PropertyRef Name="cust_id" />
+            </Principal>
+            <Dependent Role="TB_Receipt">
+              <PropertyRef Name="cust_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AS_DBModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Area" EntityType="Self.TB_Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Block" EntityType="Self.TB_Block" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_CenterMeter" EntityType="Self.TB_CenterMeter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Collector" EntityType="Self.TB_Collector" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Customer" EntityType="Self.TB_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Cycle" EntityType="Self.TB_Cycle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_LogCustomer" EntityType="Self.TB_LogCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Meter" EntityType="Self.TB_Meter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Read" EntityType="Self.TB_Read" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Receipt" EntityType="Self.TB_Receipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Subscription" EntityType="Self.TB_Subscription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_User" EntityType="Self.TB_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_Bill" EntityType="Self.View_Bill" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Bill].[اسم المشترك] AS [اسم المشترك], 
+    [View_Bill].[meter_id] AS [meter_id], 
+    [View_Bill].[رقم العداد] AS [رقم العداد], 
+    [View_Bill].[العنوان] AS [العنوان], 
+    [View_Bill].[الاشتراك] AS [الاشتراك], 
+    [View_Bill].[النشاط] AS [النشاط], 
+    [View_Bill].[cycle_id] AS [cycle_id], 
+    [View_Bill].[رقم الدورة] AS [رقم الدورة], 
+    [View_Bill].[القراءة السابقة] AS [القراءة السابقة], 
+    [View_Bill].[القراءة الحالية] AS [القراءة الحالية], 
+    [View_Bill].[الإستهلاك] AS [الإستهلاك], 
+    [View_Bill].[المبلغ] AS [المبلغ], 
+    [View_Bill].[المتأخرات] AS [المتأخرات], 
+    [View_Bill].[الحد الأدنى] AS [الحد الأدنى], 
+    [View_Bill].[إجمالي المبلغ] AS [إجمالي المبلغ], 
+    [View_Bill].[تاريخ القراءة] AS [تاريخ القراءة]
+    FROM [dbo].[View_Bill] AS [View_Bill]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_Customer" EntityType="Self.View_Customer" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Customer].[cust_id] AS [cust_id], 
+    [View_Customer].[اسم المشترك] AS [اسم المشترك], 
+    [View_Customer].[رقم العداد] AS [رقم العداد], 
+    [View_Customer].[العنوان] AS [العنوان], 
+    [View_Customer].[الجوال] AS [الجوال], 
+    [View_Customer].[آخر قراءة] AS [آخر قراءة], 
+    [View_Customer].[الرصيد] AS [الرصيد], 
+    [View_Customer].[الحالة] AS [الحالة]
+    FROM [dbo].[View_Customer] AS [View_Customer]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_TB_Block_TB_ARea" Association="Self.FK_TB_Block_TB_ARea">
+            <End Role="TB_Area" EntitySet="TB_Area" />
+            <End Role="TB_Block" EntitySet="TB_Block" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Block_TB_Block1" Association="Self.FK_TB_Block_TB_Block1">
+            <End Role="TB_Collector" EntitySet="TB_Collector" />
+            <End Role="TB_Block" EntitySet="TB_Block" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_CenterMeter_TB_Area" Association="Self.FK_TB_CenterMeter_TB_Area">
+            <End Role="TB_Area" EntitySet="TB_Area" />
+            <End Role="TB_CenterMeter" EntitySet="TB_CenterMeter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Customer_TB_Meter" Association="Self.FK_TB_Customer_TB_Meter">
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+            <End Role="TB_Customer" EntitySet="TB_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_LogCustomer_TB_Meter" Association="Self.FK_TB_LogCustomer_TB_Meter">
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+            <End Role="TB_LogCustomer" EntitySet="TB_LogCustomer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Meter_TB_CenterMeter" Association="Self.FK_TB_Meter_TB_CenterMeter">
+            <End Role="TB_CenterMeter" EntitySet="TB_CenterMeter" />
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Meter_TB_Subscription" Association="Self.FK_TB_Meter_TB_Subscription">
+            <End Role="TB_Subscription" EntitySet="TB_Subscription" />
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Read_TB_Cycle" Association="Self.FK_TB_Read_TB_Cycle">
+            <End Role="TB_Cycle" EntitySet="TB_Cycle" />
+            <End Role="TB_Read" EntitySet="TB_Read" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Read_TB_Meter" Association="Self.FK_TB_Read_TB_Meter">
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+            <End Role="TB_Read" EntitySet="TB_Read" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Receipt_TB_Collector" Association="Self.FK_TB_Receipt_TB_Collector">
+            <End Role="TB_Collector" EntitySet="TB_Collector" />
+            <End Role="TB_Receipt" EntitySet="TB_Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Receipt_TB_Customer" Association="Self.FK_TB_Receipt_TB_Customer">
+            <End Role="TB_Customer" EntitySet="TB_Customer" />
+            <End Role="TB_Receipt" EntitySet="TB_Receipt" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TB_Area">
+          <Key>
+            <PropertyRef Name="area_id" />
+          </Key>
+          <Property Name="area_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="area_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TB_CenterMeter" Relationship="Self.FK_TB_CenterMeter_TB_Area" FromRole="TB_Area" ToRole="TB_CenterMeter" />
+          <NavigationProperty Name="TB_Block" Relationship="AS_DBModel.FK_TB_Block_TB_ARea" FromRole="TB_Area" ToRole="TB_Block" />
+        </EntityType>
+        <EntityType Name="TB_CenterMeter">
+          <Key>
+            <PropertyRef Name="centerMeter_id" />
+          </Key>
+          <Property Name="centerMeter_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="centerMeter_no" Type="Int32" />
+          <Property Name="area_id" Type="Int32" />
+          <Property Name="number_meters" Type="Int32" />
+          <NavigationProperty Name="TB_Area" Relationship="Self.FK_TB_CenterMeter_TB_Area" FromRole="TB_CenterMeter" ToRole="TB_Area" />
+          <NavigationProperty Name="TB_Meter" Relationship="Self.FK_TB_Meter_TB_CenterMeter" FromRole="TB_CenterMeter" ToRole="TB_Meter" />
+        </EntityType>
+        <EntityType Name="TB_Collector">
+          <Key>
+            <PropertyRef Name="coll_id" />
+          </Key>
+          <Property Name="coll_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="coll_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="coll_phone" Type="Int32" />
+          <Property Name="coll_balance" Type="Double" />
+          <Property Name="coll_status" Type="Boolean" />
+          <NavigationProperty Name="TB_Receipt" Relationship="Self.FK_TB_Receipt_TB_Collector" FromRole="TB_Collector" ToRole="TB_Receipt" />
+          <NavigationProperty Name="TB_Block" Relationship="AS_DBModel.FK_TB_Block_TB_Block1" FromRole="TB_Collector" ToRole="TB_Block" />
+        </EntityType>
+        <EntityType Name="TB_Customer">
+          <Key>
+            <PropertyRef Name="cust_id" />
+          </Key>
+          <Property Name="cust_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="meter_id" Type="Int32" />
+          <Property Name="cust_name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="cust_address" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="cust_phone" Type="Int32" />
+          <Property Name="activity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cust_card" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="balance" Type="Double" />
+          <Property Name="area_id" Type="Int32" />
+          <NavigationProperty Name="TB_Meter" Relationship="Self.FK_TB_Customer_TB_Meter" FromRole="TB_Customer" ToRole="TB_Meter" />
+          <NavigationProperty Name="TB_Receipt" Relationship="Self.FK_TB_Receipt_TB_Customer" FromRole="TB_Customer" ToRole="TB_Receipt" />
+        </EntityType>
+        <EntityType Name="TB_Cycle">
+          <Key>
+            <PropertyRef Name="cycle_id" />
+          </Key>
+          <Property Name="cycle_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cycle_name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="from_date" Type="DateTime" Precision="0" />
+          <Property Name="to_date" Type="DateTime" Precision="0" />
+          <Property Name="cycle_status" Type="Boolean" />
+          <NavigationProperty Name="TB_Read" Relationship="Self.FK_TB_Read_TB_Cycle" FromRole="TB_Cycle" ToRole="TB_Read" />
+        </EntityType>
+        <EntityType Name="TB_Meter">
+          <Key>
+            <PropertyRef Name="meter_id" />
+          </Key>
+          <Property Name="meter_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="meter_no" Type="Int32" />
+          <Property Name="centerMeter_id" Type="Int32" />
+          <Property Name="sub_id" Type="Int32" />
+          <Property Name="meter_read" Type="Double" />
+          <Property Name="meter_status" Type="Boolean" />
+          <NavigationProperty Name="TB_CenterMeter" Relationship="Self.FK_TB_Meter_TB_CenterMeter" FromRole="TB_Meter" ToRole="TB_CenterMeter" />
+          <NavigationProperty Name="TB_Customer" Relationship="Self.FK_TB_Customer_TB_Meter" FromRole="TB_Meter" ToRole="TB_Customer" />
+          <NavigationProperty Name="TB_Subscription" Relationship="Self.FK_TB_Meter_TB_Subscription" FromRole="TB_Meter" ToRole="TB_Subscription" />
+          <NavigationProperty Name="TB_Read" Relationship="Self.FK_TB_Read_TB_Meter" FromRole="TB_Meter" ToRole="TB_Read" />
+          <NavigationProperty Name="TB_LogCustomer" Relationship="AS_DBModel.FK_TB_LogCustomer_TB_Meter" FromRole="TB_Meter" ToRole="TB_LogCustomer" />
+        </EntityType>
+        <EntityType Name="TB_Read">
+          <Key>
+            <PropertyRef Name="read_id" />
+          </Key>
+          <Property Name="read_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="meter_id" Type="Int32" Nullable="false" />
+          <Property Name="cycle_id" Type="Int32" />
+          <Property Name="pre_read" Type="Double" />
+          <Property Name="current_read" Type="Double" />
+          <Property Name="consume" Type="Double" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="consume_price" Type="Double" />
+          <Property Name="date_read" Type="DateTime" Precision="0" />
+          <Property Name="later_price" Type="Double" />
+          <NavigationProperty Name="TB_Cycle" Relationship="Self.FK_TB_Read_TB_Cycle" FromRole="TB_Read" ToRole="TB_Cycle" />
+          <NavigationProperty Name="TB_Meter" Relationship="Self.FK_TB_Read_TB_Meter" FromRole="TB_Read" ToRole="TB_Meter" />
+        </EntityType>
+        <EntityType Name="TB_Receipt">
+          <Key>
+            <PropertyRef Name="receipt_id" />
+          </Key>
+          <Property Name="receipt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="receipt_no" Type="Int32" />
+          <Property Name="cust_id" Type="Int32" />
+          <Property Name="coll_id" Type="Int32" />
+          <Property Name="money" Type="Double" />
+          <Property Name="receipt_date" Type="DateTime" Precision="0" />
+          <Property Name="detail" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TB_Collector" Relationship="Self.FK_TB_Receipt_TB_Collector" FromRole="TB_Receipt" ToRole="TB_Collector" />
+          <NavigationProperty Name="TB_Customer" Relationship="Self.FK_TB_Receipt_TB_Customer" FromRole="TB_Receipt" ToRole="TB_Customer" />
+        </EntityType>
+        <EntityType Name="TB_Subscription">
+          <Key>
+            <PropertyRef Name="sub_id" />
+          </Key>
+          <Property Name="sub_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sub_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="fees" Type="Double" />
+          <Property Name="unit_price" Type="Double" />
+          <Property Name="min_cost" Type="Double" />
+          <NavigationProperty Name="TB_Meter" Relationship="Self.FK_TB_Meter_TB_Subscription" FromRole="TB_Subscription" ToRole="TB_Meter" />
+        </EntityType>
+        <EntityType Name="TB_User">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_user" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="user_pass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="user_type" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_Bill">
+          <Key>
+            <PropertyRef Name="meter_id" />
+            <PropertyRef Name="cycle_id" />
+          </Key>
+          <Property Name="اسم_المشترك" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="meter_id" Type="Int32" Nullable="false" />
+          <Property Name="رقم_العداد" Type="Int32" />
+          <Property Name="العنوان" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="الاشتراك" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="النشاط" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="cycle_id" Type="Int32" Nullable="false" />
+          <Property Name="رقم_الدورة" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="القراءة_السابقة" Type="Double" />
+          <Property Name="القراءة_الحالية" Type="Double" />
+          <Property Name="الإستهلاك" Type="Double" />
+          <Property Name="المبلغ" Type="Double" />
+          <Property Name="المتأخرات" Type="Double" />
+          <Property Name="الحد_الأدنى" Type="Double" />
+          <Property Name="إجمالي_المبلغ" Type="Double" />
+          <Property Name="تاريخ_القراءة" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK_TB_CenterMeter_TB_Area">
+          <End Role="TB_Area" Type="Self.TB_Area" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_CenterMeter" Type="Self.TB_CenterMeter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Area">
+              <PropertyRef Name="area_id" />
+            </Principal>
+            <Dependent Role="TB_CenterMeter">
+              <PropertyRef Name="area_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Meter_TB_CenterMeter">
+          <End Role="TB_CenterMeter" Type="Self.TB_CenterMeter" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Meter" Type="Self.TB_Meter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_CenterMeter">
+              <PropertyRef Name="centerMeter_id" />
+            </Principal>
+            <Dependent Role="TB_Meter">
+              <PropertyRef Name="centerMeter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Receipt_TB_Collector">
+          <End Role="TB_Collector" Type="Self.TB_Collector" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Receipt" Type="Self.TB_Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Collector">
+              <PropertyRef Name="coll_id" />
+            </Principal>
+            <Dependent Role="TB_Receipt">
+              <PropertyRef Name="coll_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Customer_TB_Meter">
+          <End Role="TB_Meter" Type="Self.TB_Meter" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Customer" Type="Self.TB_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Meter">
+              <PropertyRef Name="meter_id" />
+            </Principal>
+            <Dependent Role="TB_Customer">
+              <PropertyRef Name="meter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Receipt_TB_Customer">
+          <End Role="TB_Customer" Type="Self.TB_Customer" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Receipt" Type="Self.TB_Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Customer">
+              <PropertyRef Name="cust_id" />
+            </Principal>
+            <Dependent Role="TB_Receipt">
+              <PropertyRef Name="cust_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Read_TB_Cycle">
+          <End Role="TB_Cycle" Type="Self.TB_Cycle" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Read" Type="Self.TB_Read" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Cycle">
+              <PropertyRef Name="cycle_id" />
+            </Principal>
+            <Dependent Role="TB_Read">
+              <PropertyRef Name="cycle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Meter_TB_Subscription">
+          <End Role="TB_Subscription" Type="Self.TB_Subscription" Multiplicity="0..1" />
+          <End Role="TB_Meter" Type="Self.TB_Meter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Subscription">
+              <PropertyRef Name="sub_id" />
+            </Principal>
+            <Dependent Role="TB_Meter">
+              <PropertyRef Name="sub_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Read_TB_Meter">
+          <End Role="TB_Meter" Type="Self.TB_Meter" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TB_Read" Type="Self.TB_Read" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Meter">
+              <PropertyRef Name="meter_id" />
+            </Principal>
+            <Dependent Role="TB_Read">
+              <PropertyRef Name="meter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TB_Area" EntityType="Self.TB_Area" />
+          <EntitySet Name="TB_CenterMeter" EntityType="Self.TB_CenterMeter" />
+          <EntitySet Name="TB_Collector" EntityType="Self.TB_Collector" />
+          <EntitySet Name="TB_Customer" EntityType="Self.TB_Customer" />
+          <EntitySet Name="TB_Cycle" EntityType="Self.TB_Cycle" />
+          <EntitySet Name="TB_Meter" EntityType="Self.TB_Meter" />
+          <EntitySet Name="TB_Read" EntityType="Self.TB_Read" />
+          <EntitySet Name="TB_Receipt" EntityType="Self.TB_Receipt" />
+          <EntitySet Name="TB_Subscription" EntityType="Self.TB_Subscription" />
+          <EntitySet Name="TB_User" EntityType="Self.TB_User" />
+          <EntitySet Name="View_Bill" EntityType="Self.View_Bill" />
+          <AssociationSet Name="FK_TB_CenterMeter_TB_Area" Association="Self.FK_TB_CenterMeter_TB_Area">
+            <End Role="TB_Area" EntitySet="TB_Area" />
+            <End Role="TB_CenterMeter" EntitySet="TB_CenterMeter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Meter_TB_CenterMeter" Association="Self.FK_TB_Meter_TB_CenterMeter">
+            <End Role="TB_CenterMeter" EntitySet="TB_CenterMeter" />
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Receipt_TB_Collector" Association="Self.FK_TB_Receipt_TB_Collector">
+            <End Role="TB_Collector" EntitySet="TB_Collector" />
+            <End Role="TB_Receipt" EntitySet="TB_Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Customer_TB_Meter" Association="Self.FK_TB_Customer_TB_Meter">
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+            <End Role="TB_Customer" EntitySet="TB_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Receipt_TB_Customer" Association="Self.FK_TB_Receipt_TB_Customer">
+            <End Role="TB_Customer" EntitySet="TB_Customer" />
+            <End Role="TB_Receipt" EntitySet="TB_Receipt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Read_TB_Cycle" Association="Self.FK_TB_Read_TB_Cycle">
+            <End Role="TB_Cycle" EntitySet="TB_Cycle" />
+            <End Role="TB_Read" EntitySet="TB_Read" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Meter_TB_Subscription" Association="Self.FK_TB_Meter_TB_Subscription">
+            <End Role="TB_Subscription" EntitySet="TB_Subscription" />
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Read_TB_Meter" Association="Self.FK_TB_Read_TB_Meter">
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+            <End Role="TB_Read" EntitySet="TB_Read" />
+          </AssociationSet>
+          <EntitySet Name="TB_LogCustomer" EntityType="AS_DBModel.TB_LogCustomer" />
+          <AssociationSet Name="FK_TB_LogCustomer_TB_Meter" Association="AS_DBModel.FK_TB_LogCustomer_TB_Meter">
+            <End Role="TB_Meter" EntitySet="TB_Meter" />
+            <End Role="TB_LogCustomer" EntitySet="TB_LogCustomer" />
+          </AssociationSet>
+          <EntitySet Name="View_Customer" EntityType="AS_DBModel.View_Customer" />
+          <EntitySet Name="TB_Block" EntityType="AS_DBModel.TB_Block" />
+          <AssociationSet Name="FK_TB_Block_TB_ARea" Association="AS_DBModel.FK_TB_Block_TB_ARea">
+            <End Role="TB_Area" EntitySet="TB_Area" />
+            <End Role="TB_Block" EntitySet="TB_Block" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_Block_TB_Block1" Association="AS_DBModel.FK_TB_Block_TB_Block1">
+            <End Role="TB_Collector" EntitySet="TB_Collector" />
+            <End Role="TB_Block" EntitySet="TB_Block" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TB_LogCustomer">
+          <Key>
+            <PropertyRef Name="log_id" />
+          </Key>
+          <Property Name="log_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="meter_id" Type="Int32" />
+          <Property Name="bill_type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="bill_no" Type="Int32" />
+          <Property Name="cust_debtor" Type="Double" />
+          <Property Name="cust_Creditor" Type="Double" />
+          <Property Name="cust_balance" Type="Double" />
+          <Property Name="log_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="TB_Meter" Relationship="AS_DBModel.FK_TB_LogCustomer_TB_Meter" FromRole="TB_LogCustomer" ToRole="TB_Meter" />
+        </EntityType>
+        <Association Name="FK_TB_LogCustomer_TB_Meter">
+          <End Type="AS_DBModel.TB_Meter" Role="TB_Meter" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="AS_DBModel.TB_LogCustomer" Role="TB_LogCustomer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Meter">
+              <PropertyRef Name="meter_id" />
+            </Principal>
+            <Dependent Role="TB_LogCustomer">
+              <PropertyRef Name="meter_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="View_Customer">
+          <Key>
+            <PropertyRef Name="cust_id" />
+          </Key>
+          <Property Name="cust_id" Type="Int32" Nullable="false" />
+          <Property Name="اسم_المشترك" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="رقم_العداد" Type="Int32" />
+          <Property Name="العنوان" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="الجوال" Type="Int32" />
+          <Property Name="آخر_قراءة" Type="Double" />
+          <Property Name="الرصيد" Type="Double" />
+          <Property Name="الحالة" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TB_Block">
+          <Key>
+            <PropertyRef Name="block_id" />
+          </Key>
+          <Property Name="block_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="block_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="area_id" Type="Int32" />
+          <Property Name="coll_id" Type="Int32" />
+          <NavigationProperty Name="TB_Area" Relationship="AS_DBModel.FK_TB_Block_TB_ARea" FromRole="TB_Block" ToRole="TB_Area" />
+          <NavigationProperty Name="TB_Collector" Relationship="AS_DBModel.FK_TB_Block_TB_Block1" FromRole="TB_Block" ToRole="TB_Collector" />
+        </EntityType>
+        <Association Name="FK_TB_Block_TB_ARea">
+          <End Type="AS_DBModel.TB_Area" Role="TB_Area" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="AS_DBModel.TB_Block" Role="TB_Block" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Area">
+              <PropertyRef Name="area_id" />
+            </Principal>
+            <Dependent Role="TB_Block">
+              <PropertyRef Name="area_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_Block_TB_Block1">
+          <End Type="AS_DBModel.TB_Collector" Role="TB_Collector" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="AS_DBModel.TB_Block" Role="TB_Block" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Collector">
+              <PropertyRef Name="coll_id" />
+            </Principal>
+            <Dependent Role="TB_Block">
+              <PropertyRef Name="coll_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AS_DBModelStoreContainer" CdmEntityContainer="AS_DBEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AS_DBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Area">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_Area">
+              <MappingFragment StoreEntitySet="TB_Area">
+                <ScalarProperty Name="area_id" ColumnName="area_id" />
+                <ScalarProperty Name="area_name" ColumnName="area_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_CenterMeter">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_CenterMeter">
+              <MappingFragment StoreEntitySet="TB_CenterMeter">
+                <ScalarProperty Name="centerMeter_id" ColumnName="centerMeter_id" />
+                <ScalarProperty Name="centerMeter_no" ColumnName="centerMeter_no" />
+                <ScalarProperty Name="area_id" ColumnName="area_id" />
+                <ScalarProperty Name="number_meters" ColumnName="number_meters" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Collector">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_Collector">
+              <MappingFragment StoreEntitySet="TB_Collector">
+                <ScalarProperty Name="coll_id" ColumnName="coll_id" />
+                <ScalarProperty Name="coll_name" ColumnName="coll_name" />
+                <ScalarProperty Name="coll_phone" ColumnName="coll_phone" />
+                <ScalarProperty Name="coll_balance" ColumnName="coll_balance" />
+                <ScalarProperty Name="coll_status" ColumnName="coll_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Customer">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_Customer">
+              <MappingFragment StoreEntitySet="TB_Customer">
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+                <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+                <ScalarProperty Name="cust_address" ColumnName="cust_address" />
+                <ScalarProperty Name="cust_phone" ColumnName="cust_phone" />
+                <ScalarProperty Name="activity" ColumnName="activity" />
+                <ScalarProperty Name="cust_card" ColumnName="cust_card" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="area_id" ColumnName="area_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Cycle">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_Cycle">
+              <MappingFragment StoreEntitySet="TB_Cycle">
+                <ScalarProperty Name="cycle_id" ColumnName="cycle_id" />
+                <ScalarProperty Name="cycle_name" ColumnName="cycle_name" />
+                <ScalarProperty Name="from_date" ColumnName="from_date" />
+                <ScalarProperty Name="to_date" ColumnName="to_date" />
+                <ScalarProperty Name="cycle_status" ColumnName="cycle_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Meter">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_Meter">
+              <MappingFragment StoreEntitySet="TB_Meter">
+                <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+                <ScalarProperty Name="meter_no" ColumnName="meter_no" />
+                <ScalarProperty Name="centerMeter_id" ColumnName="centerMeter_id" />
+                <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+                <ScalarProperty Name="meter_read" ColumnName="meter_read" />
+                <ScalarProperty Name="meter_status" ColumnName="meter_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Read">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_Read">
+              <MappingFragment StoreEntitySet="TB_Read">
+                <ScalarProperty Name="read_id" ColumnName="read_id" />
+                <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+                <ScalarProperty Name="cycle_id" ColumnName="cycle_id" />
+                <ScalarProperty Name="pre_read" ColumnName="pre_read" />
+                <ScalarProperty Name="current_read" ColumnName="current_read" />
+                <ScalarProperty Name="consume" ColumnName="consume" />
+                <ScalarProperty Name="consume_price" ColumnName="consume_price" />
+                <ScalarProperty Name="date_read" ColumnName="date_read" />
+                <ScalarProperty Name="later_price" ColumnName="later_price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Receipt">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_Receipt">
+              <MappingFragment StoreEntitySet="TB_Receipt">
+                <ScalarProperty Name="receipt_id" ColumnName="receipt_id" />
+                <ScalarProperty Name="receipt_no" ColumnName="receipt_no" />
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="coll_id" ColumnName="coll_id" />
+                <ScalarProperty Name="money" ColumnName="money" />
+                <ScalarProperty Name="receipt_date" ColumnName="receipt_date" />
+                <ScalarProperty Name="detail" ColumnName="detail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Subscription">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_Subscription">
+              <MappingFragment StoreEntitySet="TB_Subscription">
+                <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+                <ScalarProperty Name="sub_name" ColumnName="sub_name" />
+                <ScalarProperty Name="fees" ColumnName="fees" />
+                <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+                <ScalarProperty Name="min_cost" ColumnName="min_cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_User">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_User">
+              <MappingFragment StoreEntitySet="TB_User">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_user" ColumnName="user_user" />
+                <ScalarProperty Name="user_pass" ColumnName="user_pass" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Bill">
+            <EntityTypeMapping TypeName="AS_DBModel.View_Bill">
+              <MappingFragment StoreEntitySet="View_Bill">
+                <ScalarProperty Name="اسم_المشترك" ColumnName="اسم المشترك" />
+                <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+                <ScalarProperty Name="رقم_العداد" ColumnName="رقم العداد" />
+                <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+                <ScalarProperty Name="الاشتراك" ColumnName="الاشتراك" />
+                <ScalarProperty Name="النشاط" ColumnName="النشاط" />
+                <ScalarProperty Name="cycle_id" ColumnName="cycle_id" />
+                <ScalarProperty Name="رقم_الدورة" ColumnName="رقم الدورة" />
+                <ScalarProperty Name="القراءة_السابقة" ColumnName="القراءة السابقة" />
+                <ScalarProperty Name="القراءة_الحالية" ColumnName="القراءة الحالية" />
+                <ScalarProperty Name="الإستهلاك" ColumnName="الإستهلاك" />
+                <ScalarProperty Name="المبلغ" ColumnName="المبلغ" />
+                <ScalarProperty Name="المتأخرات" ColumnName="المتأخرات" />
+                <ScalarProperty Name="الحد_الأدنى" ColumnName="الحد الأدنى" />
+                <ScalarProperty Name="إجمالي_المبلغ" ColumnName="إجمالي المبلغ" />
+                <ScalarProperty Name="تاريخ_القراءة" ColumnName="تاريخ القراءة" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_LogCustomer">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_LogCustomer">
+              <MappingFragment StoreEntitySet="TB_LogCustomer">
+                <ScalarProperty Name="log_date" ColumnName="log_date" />
+                <ScalarProperty Name="cust_balance" ColumnName="cust_balance" />
+                <ScalarProperty Name="cust_Creditor" ColumnName="cust_Creditor" />
+                <ScalarProperty Name="cust_debtor" ColumnName="cust_debtor" />
+                <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+                <ScalarProperty Name="bill_type" ColumnName="bill_type" />
+                <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+                <ScalarProperty Name="log_id" ColumnName="log_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Customer">
+            <EntityTypeMapping TypeName="AS_DBModel.View_Customer">
+              <MappingFragment StoreEntitySet="View_Customer">
+                <ScalarProperty Name="الحالة" ColumnName="الحالة" />
+                <ScalarProperty Name="الرصيد" ColumnName="الرصيد" />
+                <ScalarProperty Name="آخر_قراءة" ColumnName="آخر قراءة" />
+                <ScalarProperty Name="الجوال" ColumnName="الجوال" />
+                <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+                <ScalarProperty Name="رقم_العداد" ColumnName="رقم العداد" />
+                <ScalarProperty Name="اسم_المشترك" ColumnName="اسم المشترك" />
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Block">
+            <EntityTypeMapping TypeName="AS_DBModel.TB_Block">
+              <MappingFragment StoreEntitySet="TB_Block">
+                <ScalarProperty Name="coll_id" ColumnName="coll_id" />
+                <ScalarProperty Name="area_id" ColumnName="area_id" />
+                <ScalarProperty Name="block_name" ColumnName="block_name" />
+                <ScalarProperty Name="block_id" ColumnName="block_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

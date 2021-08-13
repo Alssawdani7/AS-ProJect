@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AS_DBModelStoreContainer" CdmEntityContainer="AS_DBEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AS_DBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Area">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_Area">
+        <MappingFragment StoreEntitySet="TB_Area">
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+          <ScalarProperty Name="area_name" ColumnName="area_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_CenterMeter">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_CenterMeter">
+        <MappingFragment StoreEntitySet="TB_CenterMeter">
+          <ScalarProperty Name="centerMeter_id" ColumnName="centerMeter_id" />
+          <ScalarProperty Name="centerMeter_no" ColumnName="centerMeter_no" />
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+          <ScalarProperty Name="number_meters" ColumnName="number_meters" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Collector">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_Collector">
+        <MappingFragment StoreEntitySet="TB_Collector">
+          <ScalarProperty Name="coll_id" ColumnName="coll_id" />
+          <ScalarProperty Name="coll_name" ColumnName="coll_name" />
+          <ScalarProperty Name="coll_phone" ColumnName="coll_phone" />
+          <ScalarProperty Name="coll_balance" ColumnName="coll_balance" />
+          <ScalarProperty Name="coll_status" ColumnName="coll_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Customer">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_Customer">
+        <MappingFragment StoreEntitySet="TB_Customer">
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+          <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+          <ScalarProperty Name="cust_address" ColumnName="cust_address" />
+          <ScalarProperty Name="cust_phone" ColumnName="cust_phone" />
+          <ScalarProperty Name="activity" ColumnName="activity" />
+          <ScalarProperty Name="cust_card" ColumnName="cust_card" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Cycle">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_Cycle">
+        <MappingFragment StoreEntitySet="TB_Cycle">
+          <ScalarProperty Name="cycle_id" ColumnName="cycle_id" />
+          <ScalarProperty Name="cycle_name" ColumnName="cycle_name" />
+          <ScalarProperty Name="from_date" ColumnName="from_date" />
+          <ScalarProperty Name="to_date" ColumnName="to_date" />
+          <ScalarProperty Name="cycle_status" ColumnName="cycle_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Meter">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_Meter">
+        <MappingFragment StoreEntitySet="TB_Meter">
+          <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+          <ScalarProperty Name="meter_no" ColumnName="meter_no" />
+          <ScalarProperty Name="centerMeter_id" ColumnName="centerMeter_id" />
+          <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+          <ScalarProperty Name="meter_read" ColumnName="meter_read" />
+          <ScalarProperty Name="meter_status" ColumnName="meter_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Read">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_Read">
+        <MappingFragment StoreEntitySet="TB_Read">
+          <ScalarProperty Name="read_id" ColumnName="read_id" />
+          <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+          <ScalarProperty Name="cycle_id" ColumnName="cycle_id" />
+          <ScalarProperty Name="pre_read" ColumnName="pre_read" />
+          <ScalarProperty Name="current_read" ColumnName="current_read" />
+          <ScalarProperty Name="consume" ColumnName="consume" />
+          <ScalarProperty Name="consume_price" ColumnName="consume_price" />
+          <ScalarProperty Name="date_read" ColumnName="date_read" />
+          <ScalarProperty Name="later_price" ColumnName="later_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Receipt">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_Receipt">
+        <MappingFragment StoreEntitySet="TB_Receipt">
+          <ScalarProperty Name="receipt_id" ColumnName="receipt_id" />
+          <ScalarProperty Name="receipt_no" ColumnName="receipt_no" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="coll_id" ColumnName="coll_id" />
+          <ScalarProperty Name="money" ColumnName="money" />
+          <ScalarProperty Name="receipt_date" ColumnName="receipt_date" />
+          <ScalarProperty Name="detail" ColumnName="detail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Subscription">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_Subscription">
+        <MappingFragment StoreEntitySet="TB_Subscription">
+          <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+          <ScalarProperty Name="sub_name" ColumnName="sub_name" />
+          <ScalarProperty Name="fees" ColumnName="fees" />
+          <ScalarProperty Name="unit_price" ColumnName="unit_price" />
+          <ScalarProperty Name="min_cost" ColumnName="min_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_User">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_User">
+        <MappingFragment StoreEntitySet="TB_User">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="user_user" ColumnName="user_user" />
+          <ScalarProperty Name="user_pass" ColumnName="user_pass" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Bill">
+      <EntityTypeMapping TypeName="AS_DBModel.View_Bill">
+        <MappingFragment StoreEntitySet="View_Bill">
+          <ScalarProperty Name="اسم_المشترك" ColumnName="اسم المشترك" />
+          <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+          <ScalarProperty Name="رقم_العداد" ColumnName="رقم العداد" />
+          <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+          <ScalarProperty Name="الاشتراك" ColumnName="الاشتراك" />
+          <ScalarProperty Name="النشاط" ColumnName="النشاط" />
+          <ScalarProperty Name="cycle_id" ColumnName="cycle_id" />
+          <ScalarProperty Name="رقم_الدورة" ColumnName="رقم الدورة" />
+          <ScalarProperty Name="القراءة_السابقة" ColumnName="القراءة السابقة" />
+          <ScalarProperty Name="القراءة_الحالية" ColumnName="القراءة الحالية" />
+          <ScalarProperty Name="الإستهلاك" ColumnName="الإستهلاك" />
+          <ScalarProperty Name="المبلغ" ColumnName="المبلغ" />
+          <ScalarProperty Name="المتأخرات" ColumnName="المتأخرات" />
+          <ScalarProperty Name="الحد_الأدنى" ColumnName="الحد الأدنى" />
+          <ScalarProperty Name="إجمالي_المبلغ" ColumnName="إجمالي المبلغ" />
+          <ScalarProperty Name="تاريخ_القراءة" ColumnName="تاريخ القراءة" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_LogCustomer">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_LogCustomer">
+        <MappingFragment StoreEntitySet="TB_LogCustomer">
+          <ScalarProperty Name="log_date" ColumnName="log_date" />
+          <ScalarProperty Name="cust_balance" ColumnName="cust_balance" />
+          <ScalarProperty Name="cust_Creditor" ColumnName="cust_Creditor" />
+          <ScalarProperty Name="cust_debtor" ColumnName="cust_debtor" />
+          <ScalarProperty Name="bill_no" ColumnName="bill_no" />
+          <ScalarProperty Name="bill_type" ColumnName="bill_type" />
+          <ScalarProperty Name="meter_id" ColumnName="meter_id" />
+          <ScalarProperty Name="log_id" ColumnName="log_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_Customer">
+      <EntityTypeMapping TypeName="AS_DBModel.View_Customer">
+        <MappingFragment StoreEntitySet="View_Customer">
+          <ScalarProperty Name="الحالة" ColumnName="الحالة" />
+          <ScalarProperty Name="الرصيد" ColumnName="الرصيد" />
+          <ScalarProperty Name="آخر_قراءة" ColumnName="آخر قراءة" />
+          <ScalarProperty Name="الجوال" ColumnName="الجوال" />
+          <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+          <ScalarProperty Name="رقم_العداد" ColumnName="رقم العداد" />
+          <ScalarProperty Name="اسم_المشترك" ColumnName="اسم المشترك" />
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_Block">
+      <EntityTypeMapping TypeName="AS_DBModel.TB_Block">
+        <MappingFragment StoreEntitySet="TB_Block">
+          <ScalarProperty Name="coll_id" ColumnName="coll_id" />
+          <ScalarProperty Name="area_id" ColumnName="area_id" />
+          <ScalarProperty Name="block_name" ColumnName="block_name" />
+          <ScalarProperty Name="block_id" ColumnName="block_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
