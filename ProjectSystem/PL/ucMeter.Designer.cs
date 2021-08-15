@@ -1,7 +1,6 @@
-﻿
-namespace ProjectSystem.PL
+﻿namespace ProjectSystem.PL
 {
-    partial class ucCustomer
+    partial class ucMeter
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,13 +28,12 @@ namespace ProjectSystem.PL
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucCustomer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucMeter));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -43,19 +41,14 @@ namespace ProjectSystem.PL
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.dgvCustomer = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.dgvCust_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCustNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCustName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCustMeter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCustLoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCustPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCustRead = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCustBlnc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCustStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.elpsDgv = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.Meter_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MeterNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MeterRead = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MeterState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.txtSearch = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.btnAddCust = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.btnAddMeter = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,15 +79,11 @@ namespace ProjectSystem.PL
             this.dgvCustomer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCustomer.ColumnHeadersHeight = 40;
             this.dgvCustomer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvCust_id,
-            this.dgvCustNo,
-            this.dgvCustName,
-            this.dgvCustMeter,
-            this.dgvCustLoc,
-            this.dgvCustPhone,
-            this.dgvCustRead,
-            this.dgvCustBlnc,
-            this.dgvCustStatus});
+            this.Meter_id,
+            this.MeterNo,
+            this.MeterRead,
+            this.CustomerName,
+            this.MeterState});
             this.dgvCustomer.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.dgvCustomer.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.dgvCustomer.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
@@ -150,82 +139,45 @@ namespace ProjectSystem.PL
             this.dgvCustomer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvCustomer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCustomer.Size = new System.Drawing.Size(1267, 546);
-            this.dgvCustomer.TabIndex = 11;
+            this.dgvCustomer.TabIndex = 3;
             this.dgvCustomer.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             // 
-            // dgvCust_id
+            // Meter_id
             // 
-            this.dgvCust_id.DataPropertyName = "cust_id";
-            this.dgvCust_id.HeaderText = "cust id";
-            this.dgvCust_id.Name = "dgvCust_id";
-            this.dgvCust_id.ReadOnly = true;
-            this.dgvCust_id.Visible = false;
+            this.Meter_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Meter_id.FillWeight = 449.2386F;
+            this.Meter_id.HeaderText = "م ";
+            this.Meter_id.Name = "Meter_id";
+            this.Meter_id.ReadOnly = true;
+            this.Meter_id.Width = 150;
             // 
-            // dgvCustNo
+            // MeterNo
             // 
-            this.dgvCustNo.FillWeight = 30.45683F;
-            this.dgvCustNo.HeaderText = "م";
-            this.dgvCustNo.Name = "dgvCustNo";
-            this.dgvCustNo.ReadOnly = true;
+            this.MeterNo.FillWeight = 12.69035F;
+            this.MeterNo.HeaderText = "رقم العداد التسلسلي";
+            this.MeterNo.Name = "MeterNo";
+            this.MeterNo.ReadOnly = true;
             // 
-            // dgvCustName
+            // MeterRead
             // 
-            this.dgvCustName.DataPropertyName = "اسم_المشترك";
-            this.dgvCustName.FillWeight = 113.5424F;
-            this.dgvCustName.HeaderText = "اسم المشترك";
-            this.dgvCustName.Name = "dgvCustName";
-            this.dgvCustName.ReadOnly = true;
+            this.MeterRead.FillWeight = 12.69035F;
+            this.MeterRead.HeaderText = "قراءة العداد";
+            this.MeterRead.Name = "MeterRead";
+            this.MeterRead.ReadOnly = true;
             // 
-            // dgvCustMeter
+            // CustomerName
             // 
-            this.dgvCustMeter.DataPropertyName = "رقم_العداد";
-            this.dgvCustMeter.FillWeight = 114.2423F;
-            this.dgvCustMeter.HeaderText = "رقم العداد";
-            this.dgvCustMeter.Name = "dgvCustMeter";
-            this.dgvCustMeter.ReadOnly = true;
+            this.CustomerName.FillWeight = 12.69035F;
+            this.CustomerName.HeaderText = "اسم المشترك";
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.ReadOnly = true;
             // 
-            // dgvCustLoc
+            // MeterState
             // 
-            this.dgvCustLoc.DataPropertyName = "العنوان";
-            this.dgvCustLoc.FillWeight = 113.5438F;
-            this.dgvCustLoc.HeaderText = "العنوان";
-            this.dgvCustLoc.Name = "dgvCustLoc";
-            this.dgvCustLoc.ReadOnly = true;
-            // 
-            // dgvCustPhone
-            // 
-            this.dgvCustPhone.DataPropertyName = "الجوال";
-            this.dgvCustPhone.HeaderText = "الجوال";
-            this.dgvCustPhone.Name = "dgvCustPhone";
-            this.dgvCustPhone.ReadOnly = true;
-            // 
-            // dgvCustRead
-            // 
-            this.dgvCustRead.DataPropertyName = "آخر_قراءة";
-            this.dgvCustRead.HeaderText = "آخر قراءة";
-            this.dgvCustRead.Name = "dgvCustRead";
-            this.dgvCustRead.ReadOnly = true;
-            // 
-            // dgvCustBlnc
-            // 
-            this.dgvCustBlnc.DataPropertyName = "الرصيد";
-            this.dgvCustBlnc.FillWeight = 114.249F;
-            this.dgvCustBlnc.HeaderText = "الرصيد";
-            this.dgvCustBlnc.Name = "dgvCustBlnc";
-            this.dgvCustBlnc.ReadOnly = true;
-            // 
-            // dgvCustStatus
-            // 
-            this.dgvCustStatus.DataPropertyName = "الحالة";
-            this.dgvCustStatus.FillWeight = 113.9653F;
-            this.dgvCustStatus.HeaderText = "الحالة";
-            this.dgvCustStatus.Name = "dgvCustStatus";
-            this.dgvCustStatus.ReadOnly = true;
-            // 
-            // elpsDgv
-            // 
-            this.elpsDgv.ElipseRadius = 25;
-            this.elpsDgv.TargetControl = this.dgvCustomer;
+            this.MeterState.FillWeight = 12.69035F;
+            this.MeterState.HeaderText = "حالة العداد";
+            this.MeterState.Name = "MeterState";
+            this.MeterState.ReadOnly = true;
             // 
             // btnSearch
             // 
@@ -267,7 +219,7 @@ namespace ProjectSystem.PL
             this.btnSearch.IconRightCursor = System.Windows.Forms.Cursors.Default;
             this.btnSearch.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.btnSearch.IconSize = 25;
-            this.btnSearch.IdleBorderColor = System.Drawing.Color.Transparent;
+            this.btnSearch.IdleBorderColor = System.Drawing.Color.DodgerBlue;
             this.btnSearch.IdleBorderRadius = 45;
             this.btnSearch.IdleBorderThickness = 1;
             this.btnSearch.IdleFillColor = System.Drawing.Color.White;
@@ -293,7 +245,7 @@ namespace ProjectSystem.PL
             this.btnSearch.onHoverState.ForeColor = System.Drawing.Color.White;
             this.btnSearch.onHoverState.IconLeftImage = null;
             this.btnSearch.onHoverState.IconRightImage = null;
-            this.btnSearch.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSearch.OnIdleState.BorderColor = System.Drawing.Color.DodgerBlue;
             this.btnSearch.OnIdleState.BorderRadius = 45;
             this.btnSearch.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnSearch.OnIdleState.BorderThickness = 1;
@@ -310,7 +262,7 @@ namespace ProjectSystem.PL
             this.btnSearch.OnPressedState.IconLeftImage = null;
             this.btnSearch.OnPressedState.IconRightImage = null;
             this.btnSearch.Size = new System.Drawing.Size(52, 55);
-            this.btnSearch.TabIndex = 13;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnSearch.TextMarginLeft = 0;
@@ -383,7 +335,7 @@ namespace ProjectSystem.PL
             this.txtSearch.ShortcutsEnabled = true;
             this.txtSearch.Size = new System.Drawing.Size(465, 54);
             this.txtSearch.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txtSearch.TabIndex = 12;
+            this.txtSearch.TabIndex = 1;
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtSearch.TextMarginBottom = 0;
             this.txtSearch.TextMarginLeft = 4;
@@ -392,108 +344,106 @@ namespace ProjectSystem.PL
             this.txtSearch.UseSystemPasswordChar = false;
             this.txtSearch.WordWrap = true;
             // 
-            // btnAddCust
+            // btnAddMeter
             // 
-            this.btnAddCust.AllowAnimations = true;
-            this.btnAddCust.AllowMouseEffects = true;
-            this.btnAddCust.AllowToggling = false;
-            this.btnAddCust.AnimationSpeed = 200;
-            this.btnAddCust.AutoGenerateColors = false;
-            this.btnAddCust.AutoRoundBorders = false;
-            this.btnAddCust.AutoSizeLeftIcon = true;
-            this.btnAddCust.AutoSizeRightIcon = true;
-            this.btnAddCust.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddCust.BackColor1 = System.Drawing.SystemColors.HotTrack;
-            this.btnAddCust.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddCust.BackgroundImage")));
-            this.btnAddCust.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnAddCust.ButtonText = "إضافة مشترك";
-            this.btnAddCust.ButtonTextMarginLeft = 0;
-            this.btnAddCust.ColorContrastOnClick = 45;
-            this.btnAddCust.ColorContrastOnHover = 45;
-            this.btnAddCust.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnAddMeter.AllowAnimations = true;
+            this.btnAddMeter.AllowMouseEffects = true;
+            this.btnAddMeter.AllowToggling = false;
+            this.btnAddMeter.AnimationSpeed = 200;
+            this.btnAddMeter.AutoGenerateColors = false;
+            this.btnAddMeter.AutoRoundBorders = false;
+            this.btnAddMeter.AutoSizeLeftIcon = true;
+            this.btnAddMeter.AutoSizeRightIcon = true;
+            this.btnAddMeter.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddMeter.BackColor1 = System.Drawing.SystemColors.HotTrack;
+            this.btnAddMeter.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddMeter.BackgroundImage")));
+            this.btnAddMeter.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnAddMeter.ButtonText = "إضافة عداد";
+            this.btnAddMeter.ButtonTextMarginLeft = 0;
+            this.btnAddMeter.ColorContrastOnClick = 45;
+            this.btnAddMeter.ColorContrastOnHover = 45;
+            this.btnAddMeter.Cursor = System.Windows.Forms.Cursors.Default;
             borderEdges2.BottomLeft = true;
             borderEdges2.BottomRight = true;
             borderEdges2.TopLeft = true;
             borderEdges2.TopRight = true;
-            this.btnAddCust.CustomizableEdges = borderEdges2;
-            this.btnAddCust.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnAddCust.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnAddCust.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnAddCust.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnAddCust.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.btnAddCust.Font = new System.Drawing.Font("Noon", 15F);
-            this.btnAddCust.ForeColor = System.Drawing.Color.White;
-            this.btnAddCust.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddCust.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.btnAddCust.IconLeftPadding = new System.Windows.Forms.Padding(10);
-            this.btnAddCust.IconMarginLeft = 11;
-            this.btnAddCust.IconPadding = 10;
-            this.btnAddCust.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddCust.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.btnAddCust.IconRightPadding = new System.Windows.Forms.Padding(0);
-            this.btnAddCust.IconSize = 25;
-            this.btnAddCust.IdleBorderColor = System.Drawing.Color.White;
-            this.btnAddCust.IdleBorderRadius = 20;
-            this.btnAddCust.IdleBorderThickness = 1;
-            this.btnAddCust.IdleFillColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAddCust.IdleIconLeftImage = global::ProjectSystem.Properties.Resources.add;
-            this.btnAddCust.IdleIconRightImage = null;
-            this.btnAddCust.IndicateFocus = true;
-            this.btnAddCust.Location = new System.Drawing.Point(972, 23);
-            this.btnAddCust.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAddCust.Name = "btnAddCust";
-            this.btnAddCust.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnAddCust.OnDisabledState.BorderRadius = 20;
-            this.btnAddCust.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnAddCust.OnDisabledState.BorderThickness = 1;
-            this.btnAddCust.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnAddCust.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.btnAddCust.OnDisabledState.IconLeftImage = null;
-            this.btnAddCust.OnDisabledState.IconRightImage = null;
-            this.btnAddCust.onHoverState.BorderColor = System.Drawing.Color.White;
-            this.btnAddCust.onHoverState.BorderRadius = 20;
-            this.btnAddCust.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnAddCust.onHoverState.BorderThickness = 1;
-            this.btnAddCust.onHoverState.FillColor = System.Drawing.SystemColors.MenuHighlight;
-            this.btnAddCust.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.btnAddCust.onHoverState.IconLeftImage = null;
-            this.btnAddCust.onHoverState.IconRightImage = null;
-            this.btnAddCust.OnIdleState.BorderColor = System.Drawing.Color.White;
-            this.btnAddCust.OnIdleState.BorderRadius = 20;
-            this.btnAddCust.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnAddCust.OnIdleState.BorderThickness = 1;
-            this.btnAddCust.OnIdleState.FillColor = System.Drawing.SystemColors.HotTrack;
-            this.btnAddCust.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.btnAddCust.OnIdleState.IconLeftImage = global::ProjectSystem.Properties.Resources.add;
-            this.btnAddCust.OnIdleState.IconRightImage = null;
-            this.btnAddCust.OnPressedState.BorderColor = System.Drawing.Color.White;
-            this.btnAddCust.OnPressedState.BorderRadius = 20;
-            this.btnAddCust.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.btnAddCust.OnPressedState.BorderThickness = 1;
-            this.btnAddCust.OnPressedState.FillColor = System.Drawing.Color.Turquoise;
-            this.btnAddCust.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.btnAddCust.OnPressedState.IconLeftImage = null;
-            this.btnAddCust.OnPressedState.IconRightImage = null;
-            this.btnAddCust.Size = new System.Drawing.Size(195, 55);
-            this.btnAddCust.TabIndex = 9;
-            this.btnAddCust.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddCust.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnAddCust.TextMarginLeft = 0;
-            this.btnAddCust.TextPadding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnAddCust.UseDefaultRadiusAndThickness = true;
-            this.btnAddCust.Click += new System.EventHandler(this.btnAddCust_Click);
+            this.btnAddMeter.CustomizableEdges = borderEdges2;
+            this.btnAddMeter.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnAddMeter.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnAddMeter.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnAddMeter.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnAddMeter.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.btnAddMeter.Font = new System.Drawing.Font("Noon", 15F);
+            this.btnAddMeter.ForeColor = System.Drawing.Color.White;
+            this.btnAddMeter.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddMeter.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnAddMeter.IconLeftPadding = new System.Windows.Forms.Padding(10);
+            this.btnAddMeter.IconMarginLeft = 11;
+            this.btnAddMeter.IconPadding = 10;
+            this.btnAddMeter.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddMeter.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnAddMeter.IconRightPadding = new System.Windows.Forms.Padding(0);
+            this.btnAddMeter.IconSize = 25;
+            this.btnAddMeter.IdleBorderColor = System.Drawing.Color.White;
+            this.btnAddMeter.IdleBorderRadius = 20;
+            this.btnAddMeter.IdleBorderThickness = 1;
+            this.btnAddMeter.IdleFillColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAddMeter.IdleIconLeftImage = global::ProjectSystem.Properties.Resources.add;
+            this.btnAddMeter.IdleIconRightImage = null;
+            this.btnAddMeter.IndicateFocus = true;
+            this.btnAddMeter.Location = new System.Drawing.Point(972, 23);
+            this.btnAddMeter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAddMeter.Name = "btnAddMeter";
+            this.btnAddMeter.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnAddMeter.OnDisabledState.BorderRadius = 20;
+            this.btnAddMeter.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnAddMeter.OnDisabledState.BorderThickness = 1;
+            this.btnAddMeter.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnAddMeter.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnAddMeter.OnDisabledState.IconLeftImage = null;
+            this.btnAddMeter.OnDisabledState.IconRightImage = null;
+            this.btnAddMeter.onHoverState.BorderColor = System.Drawing.Color.White;
+            this.btnAddMeter.onHoverState.BorderRadius = 20;
+            this.btnAddMeter.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnAddMeter.onHoverState.BorderThickness = 1;
+            this.btnAddMeter.onHoverState.FillColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnAddMeter.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnAddMeter.onHoverState.IconLeftImage = null;
+            this.btnAddMeter.onHoverState.IconRightImage = null;
+            this.btnAddMeter.OnIdleState.BorderColor = System.Drawing.Color.White;
+            this.btnAddMeter.OnIdleState.BorderRadius = 20;
+            this.btnAddMeter.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnAddMeter.OnIdleState.BorderThickness = 1;
+            this.btnAddMeter.OnIdleState.FillColor = System.Drawing.SystemColors.HotTrack;
+            this.btnAddMeter.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.btnAddMeter.OnIdleState.IconLeftImage = global::ProjectSystem.Properties.Resources.add;
+            this.btnAddMeter.OnIdleState.IconRightImage = null;
+            this.btnAddMeter.OnPressedState.BorderColor = System.Drawing.Color.White;
+            this.btnAddMeter.OnPressedState.BorderRadius = 20;
+            this.btnAddMeter.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.btnAddMeter.OnPressedState.BorderThickness = 1;
+            this.btnAddMeter.OnPressedState.FillColor = System.Drawing.Color.Turquoise;
+            this.btnAddMeter.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.btnAddMeter.OnPressedState.IconLeftImage = null;
+            this.btnAddMeter.OnPressedState.IconRightImage = null;
+            this.btnAddMeter.Size = new System.Drawing.Size(195, 55);
+            this.btnAddMeter.TabIndex = 0;
+            this.btnAddMeter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddMeter.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnAddMeter.TextMarginLeft = 0;
+            this.btnAddMeter.TextPadding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnAddMeter.UseDefaultRadiusAndThickness = true;
+            this.btnAddMeter.Click += new System.EventHandler(this.btnAddMeter_Click);
             // 
-            // ucCustomer
+            // ucMeter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnAddMeter);
             this.Controls.Add(this.dgvCustomer);
-            this.Controls.Add(this.btnAddCust);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "ucCustomer";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Name = "ucMeter";
             this.Size = new System.Drawing.Size(1314, 810);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).EndInit();
             this.ResumeLayout(false);
@@ -502,19 +452,14 @@ namespace ProjectSystem.PL
 
         #endregion
 
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnAddCust;
         private Bunifu.UI.WinForms.BunifuDataGridView dgvCustomer;
-        private Bunifu.UI.WinForms.BunifuTextBox txtSearch;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnSearch;
-        private Bunifu.Framework.UI.BunifuElipse elpsDgv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCust_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCustNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCustName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCustMeter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCustLoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCustPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCustRead;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCustBlnc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCustStatus;
+        private Bunifu.UI.WinForms.BunifuTextBox txtSearch;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton btnAddMeter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Meter_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MeterNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MeterRead;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MeterState;
     }
 }

@@ -38,8 +38,10 @@
             this.pageHome = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.pageMeter = new System.Windows.Forms.TabPage();
+            this.ucMeter1 = new ProjectSystem.PL.ucMeter();
             this.label2 = new System.Windows.Forms.Label();
             this.pageCust = new System.Windows.Forms.TabPage();
+            this.ucCustomer1 = new ProjectSystem.PL.ucCustomer();
             this.label3 = new System.Windows.Forms.Label();
             this.pageRead = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -68,7 +70,6 @@
             this.btnMeter = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.btnLogo1ut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.ucCustomer1 = new ProjectSystem.PL.ucCustomer();
             this.pnlHome.SuspendLayout();
             this.pages.SuspendLayout();
             this.pageHome.SuspendLayout();
@@ -99,12 +100,12 @@
             this.pnlHome.BorderThickness = 0;
             this.pnlHome.Controls.Add(this.pages);
             this.pnlHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlHome.Location = new System.Drawing.Point(0, 50);
+            this.pnlHome.Location = new System.Drawing.Point(0, 62);
             this.pnlHome.Margin = new System.Windows.Forms.Padding(0);
             this.pnlHome.Name = "pnlHome";
-            this.pnlHome.Padding = new System.Windows.Forms.Padding(10);
+            this.pnlHome.Padding = new System.Windows.Forms.Padding(12);
             this.pnlHome.ShowBorders = true;
-            this.pnlHome.Size = new System.Drawing.Size(1146, 678);
+            this.pnlHome.Size = new System.Drawing.Size(1337, 834);
             this.pnlHome.TabIndex = 4;
             // 
             // pages
@@ -120,16 +121,16 @@
             this.pages.Controls.Add(this.pageReport);
             this.pages.Controls.Add(this.tabPage2);
             this.pages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pages.Location = new System.Drawing.Point(10, 10);
+            this.pages.Location = new System.Drawing.Point(12, 12);
             this.pages.Margin = new System.Windows.Forms.Padding(0);
             this.pages.Multiline = true;
             this.pages.Name = "pages";
-            this.pages.Page = this.pageCust;
-            this.pages.PageIndex = 2;
-            this.pages.PageName = "pageCust";
-            this.pages.PageTitle = "btnCust";
+            this.pages.Page = this.pageHome;
+            this.pages.PageIndex = 0;
+            this.pages.PageName = "pageHome";
+            this.pages.PageTitle = "btnHome";
             this.pages.SelectedIndex = 0;
-            this.pages.Size = new System.Drawing.Size(1126, 658);
+            this.pages.Size = new System.Drawing.Size(1313, 810);
             this.pages.TabIndex = 1;
             animation1.AnimateOnlyDifferences = false;
             animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
@@ -155,9 +156,10 @@
             this.pageHome.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pageHome.Controls.Add(this.label1);
             this.pageHome.Location = new System.Drawing.Point(4, 4);
+            this.pageHome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pageHome.Name = "pageHome";
-            this.pageHome.Padding = new System.Windows.Forms.Padding(3);
-            this.pageHome.Size = new System.Drawing.Size(1118, 632);
+            this.pageHome.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pageHome.Size = new System.Drawing.Size(1305, 781);
             this.pageHome.TabIndex = 0;
             this.pageHome.Text = "btnHome";
             // 
@@ -165,30 +167,40 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mistral", 44F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(255, 268);
+            this.label1.Location = new System.Drawing.Point(297, 330);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 71);
+            this.label1.Size = new System.Drawing.Size(308, 88);
             this.label1.TabIndex = 0;
             this.label1.Text = "HOME Page";
             // 
             // pageMeter
             // 
             this.pageMeter.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pageMeter.Controls.Add(this.ucMeter1);
             this.pageMeter.Controls.Add(this.label2);
             this.pageMeter.Location = new System.Drawing.Point(4, 4);
+            this.pageMeter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pageMeter.Name = "pageMeter";
-            this.pageMeter.Padding = new System.Windows.Forms.Padding(3);
-            this.pageMeter.Size = new System.Drawing.Size(1118, 632);
+            this.pageMeter.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pageMeter.Size = new System.Drawing.Size(1305, 781);
             this.pageMeter.TabIndex = 1;
             this.pageMeter.Text = "btnMeter";
+            // 
+            // ucMeter1
+            // 
+            this.ucMeter1.Location = new System.Drawing.Point(23, 26);
+            this.ucMeter1.Name = "ucMeter1";
+            this.ucMeter1.Size = new System.Drawing.Size(1258, 732);
+            this.ucMeter1.TabIndex = 2;
+            this.ucMeter1.Load += new System.EventHandler(this.ucMeter1_Load);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Mistral", 44F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(444, 305);
+            this.label2.Location = new System.Drawing.Point(518, 375);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(178, 71);
+            this.label2.Size = new System.Drawing.Size(225, 88);
             this.label2.TabIndex = 1;
             this.label2.Text = "METERS";
             // 
@@ -198,19 +210,32 @@
             this.pageCust.Controls.Add(this.ucCustomer1);
             this.pageCust.Controls.Add(this.label3);
             this.pageCust.Location = new System.Drawing.Point(4, 4);
+            this.pageCust.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pageCust.Name = "pageCust";
-            this.pageCust.Padding = new System.Windows.Forms.Padding(3);
-            this.pageCust.Size = new System.Drawing.Size(1118, 632);
+            this.pageCust.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pageCust.Size = new System.Drawing.Size(1305, 781);
             this.pageCust.TabIndex = 2;
             this.pageCust.Text = "btnCust";
+            // 
+            // ucCustomer1
+            // 
+            this.ucCustomer1.BackColor = System.Drawing.Color.Transparent;
+            this.ucCustomer1.Location = new System.Drawing.Point(23, 26);
+            this.ucCustomer1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.ucCustomer1.Name = "ucCustomer1";
+            this.ucCustomer1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ucCustomer1.Size = new System.Drawing.Size(1258, 732);
+            this.ucCustomer1.TabIndex = 2;
+            this.ucCustomer1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ucCustomer1_KeyPress);
+            this.ucCustomer1.MouseEnter += new System.EventHandler(this.ucCustomer1_MouseEnter);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Mistral", 44F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(444, 305);
+            this.label3.Location = new System.Drawing.Point(518, 375);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(262, 71);
+            this.label3.Size = new System.Drawing.Size(331, 88);
             this.label3.TabIndex = 1;
             this.label3.Text = "CUSTOMERS";
             // 
@@ -219,9 +244,10 @@
             this.pageRead.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pageRead.Controls.Add(this.label4);
             this.pageRead.Location = new System.Drawing.Point(4, 4);
+            this.pageRead.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pageRead.Name = "pageRead";
-            this.pageRead.Padding = new System.Windows.Forms.Padding(3);
-            this.pageRead.Size = new System.Drawing.Size(1118, 632);
+            this.pageRead.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pageRead.Size = new System.Drawing.Size(1305, 781);
             this.pageRead.TabIndex = 3;
             this.pageRead.Text = "btnRead";
             // 
@@ -229,9 +255,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Mistral", 44F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(444, 305);
+            this.label4.Location = new System.Drawing.Point(518, 375);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 71);
+            this.label4.Size = new System.Drawing.Size(172, 88);
             this.label4.TabIndex = 1;
             this.label4.Text = "READ";
             // 
@@ -240,9 +266,10 @@
             this.pageLoc.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pageLoc.Controls.Add(this.label5);
             this.pageLoc.Location = new System.Drawing.Point(4, 4);
+            this.pageLoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pageLoc.Name = "pageLoc";
-            this.pageLoc.Padding = new System.Windows.Forms.Padding(3);
-            this.pageLoc.Size = new System.Drawing.Size(1118, 632);
+            this.pageLoc.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pageLoc.Size = new System.Drawing.Size(1305, 781);
             this.pageLoc.TabIndex = 4;
             this.pageLoc.Text = "btnLoc";
             // 
@@ -250,9 +277,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Mistral", 44F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(454, 280);
+            this.label5.Location = new System.Drawing.Point(530, 345);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(224, 71);
+            this.label5.Size = new System.Drawing.Size(284, 88);
             this.label5.TabIndex = 2;
             this.label5.Text = "LOCATION";
             // 
@@ -261,9 +288,10 @@
             this.pageBill.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pageBill.Controls.Add(this.label8);
             this.pageBill.Location = new System.Drawing.Point(4, 4);
+            this.pageBill.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pageBill.Name = "pageBill";
-            this.pageBill.Padding = new System.Windows.Forms.Padding(3);
-            this.pageBill.Size = new System.Drawing.Size(1118, 632);
+            this.pageBill.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pageBill.Size = new System.Drawing.Size(1305, 781);
             this.pageBill.TabIndex = 5;
             this.pageBill.Text = "btnBill";
             // 
@@ -271,9 +299,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Mistral", 44F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(448, 277);
+            this.label8.Location = new System.Drawing.Point(523, 341);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 71);
+            this.label8.Size = new System.Drawing.Size(135, 88);
             this.label8.TabIndex = 2;
             this.label8.Text = "BILL";
             // 
@@ -281,9 +309,10 @@
             // 
             this.pageReport.Controls.Add(this.label7);
             this.pageReport.Location = new System.Drawing.Point(4, 4);
+            this.pageReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pageReport.Name = "pageReport";
-            this.pageReport.Padding = new System.Windows.Forms.Padding(3);
-            this.pageReport.Size = new System.Drawing.Size(1118, 632);
+            this.pageReport.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pageReport.Size = new System.Drawing.Size(1305, 781);
             this.pageReport.TabIndex = 6;
             this.pageReport.Text = "btnReport";
             this.pageReport.UseVisualStyleBackColor = true;
@@ -292,18 +321,19 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Mistral", 44F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(448, 277);
+            this.label7.Location = new System.Drawing.Point(523, 341);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(182, 71);
+            this.label7.Size = new System.Drawing.Size(230, 88);
             this.label7.TabIndex = 2;
             this.label7.Text = "REPORT";
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1118, 632);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage2.Size = new System.Drawing.Size(1305, 781);
             this.tabPage2.TabIndex = 7;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -324,7 +354,7 @@
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(0);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.ShowBorders = true;
-            this.pnlHeader.Size = new System.Drawing.Size(1146, 50);
+            this.pnlHeader.Size = new System.Drawing.Size(1337, 62);
             this.pnlHeader.TabIndex = 3;
             // 
             // btnLogout
@@ -341,22 +371,25 @@
             this.btnLogout.FadeWhenInactive = false;
             this.btnLogout.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
             this.btnLogout.Image = global::ProjectSystem.Properties.Resources.logout;
+            this.btnLogout.ImageActive = global::ProjectSystem.Properties.Resources.logoutRed;
             this.btnLogout.ImageLocation = null;
             this.btnLogout.ImageMargin = 5;
-            this.btnLogout.ImageSize = new System.Drawing.Size(20, 20);
-            this.btnLogout.ImageZoomSize = new System.Drawing.Size(25, 25);
+            this.btnLogout.ImageSize = new System.Drawing.Size(24, 26);
+            this.btnLogout.ImageZoomSize = new System.Drawing.Size(29, 31);
             this.btnLogout.InitialImage = null;
-            this.btnLogout.Location = new System.Drawing.Point(19, 13);
+            this.btnLogout.Location = new System.Drawing.Point(22, 16);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Rotation = 0;
             this.btnLogout.ShowActiveImage = true;
             this.btnLogout.ShowCursorChanges = true;
             this.btnLogout.ShowImageBorders = true;
             this.btnLogout.ShowSizeMarkers = false;
-            this.btnLogout.Size = new System.Drawing.Size(25, 25);
+            this.btnLogout.Size = new System.Drawing.Size(29, 31);
             this.btnLogout.TabIndex = 3;
             this.btnLogout.ToolTipText = "";
             this.btnLogout.WaitOnLoad = false;
+            this.btnLogout.Zoom = 5;
             this.btnLogout.ZoomSpeed = 10;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
@@ -374,22 +407,25 @@
             this.btnSettings.FadeWhenInactive = false;
             this.btnSettings.Flip = Bunifu.UI.WinForms.BunifuImageButton.FlipOrientation.Normal;
             this.btnSettings.Image = global::ProjectSystem.Properties.Resources.settings;
+            this.btnSettings.ImageActive = global::ProjectSystem.Properties.Resources.settingsBlue;
             this.btnSettings.ImageLocation = null;
             this.btnSettings.ImageMargin = 5;
-            this.btnSettings.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnSettings.ImageZoomSize = new System.Drawing.Size(30, 30);
+            this.btnSettings.ImageSize = new System.Drawing.Size(30, 32);
+            this.btnSettings.ImageZoomSize = new System.Drawing.Size(35, 37);
             this.btnSettings.InitialImage = null;
-            this.btnSettings.Location = new System.Drawing.Point(260, 10);
+            this.btnSettings.Location = new System.Drawing.Point(303, 12);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Rotation = 0;
             this.btnSettings.ShowActiveImage = true;
             this.btnSettings.ShowCursorChanges = true;
             this.btnSettings.ShowImageBorders = true;
             this.btnSettings.ShowSizeMarkers = false;
-            this.btnSettings.Size = new System.Drawing.Size(30, 30);
+            this.btnSettings.Size = new System.Drawing.Size(35, 37);
             this.btnSettings.TabIndex = 2;
             this.btnSettings.ToolTipText = "";
             this.btnSettings.WaitOnLoad = false;
+            this.btnSettings.Zoom = 5;
             this.btnSettings.ZoomSpeed = 10;
             // 
             // bunifuPanel1
@@ -403,11 +439,11 @@
             this.bunifuPanel1.Controls.Add(this.lblUser);
             this.bunifuPanel1.Controls.Add(this.bunifuPictureBox2);
             this.bunifuPanel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bunifuPanel1.Location = new System.Drawing.Point(66, 5);
+            this.bunifuPanel1.Location = new System.Drawing.Point(77, 6);
             this.bunifuPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(172, 40);
+            this.bunifuPanel1.Size = new System.Drawing.Size(201, 49);
             this.bunifuPanel1.TabIndex = 1;
             // 
             // lblUser
@@ -416,9 +452,9 @@
             this.lblUser.BackColor = System.Drawing.Color.Transparent;
             this.lblUser.Font = new System.Drawing.Font("Eras Demi ITC", 12F);
             this.lblUser.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblUser.Location = new System.Drawing.Point(49, 10);
+            this.lblUser.Location = new System.Drawing.Point(57, 12);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(92, 19);
+            this.lblUser.Size = new System.Drawing.Size(114, 23);
             this.lblUser.TabIndex = 0;
             this.lblUser.Text = "User Name";
             // 
@@ -427,14 +463,14 @@
             this.bunifuPictureBox2.AllowFocused = false;
             this.bunifuPictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.bunifuPictureBox2.AutoSizeHeight = true;
-            this.bunifuPictureBox2.BorderRadius = 20;
+            this.bunifuPictureBox2.BorderRadius = 23;
             this.bunifuPictureBox2.Image = global::ProjectSystem.Properties.Resources.userBlue;
             this.bunifuPictureBox2.InitialImage = global::ProjectSystem.Properties.Resources.user;
             this.bunifuPictureBox2.IsCircle = true;
             this.bunifuPictureBox2.Location = new System.Drawing.Point(0, 0);
             this.bunifuPictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.bunifuPictureBox2.Name = "bunifuPictureBox2";
-            this.bunifuPictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.bunifuPictureBox2.Size = new System.Drawing.Size(47, 47);
             this.bunifuPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bunifuPictureBox2.TabIndex = 0;
             this.bunifuPictureBox2.TabStop = false;
@@ -461,11 +497,11 @@
             this.bunifuPanel2.Controls.Add(this.btnLogo1ut);
             this.bunifuPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.bunifuPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuPanel2.Location = new System.Drawing.Point(1146, 0);
+            this.bunifuPanel2.Location = new System.Drawing.Point(1337, 0);
             this.bunifuPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.bunifuPanel2.Name = "bunifuPanel2";
             this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(220, 728);
+            this.bunifuPanel2.Size = new System.Drawing.Size(257, 896);
             this.bunifuPanel2.TabIndex = 2;
             // 
             // guna2Button1
@@ -487,10 +523,11 @@
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(218)))), ((int)(((byte)(230)))));
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Location = new System.Drawing.Point(31, 532);
+            this.guna2Button1.Location = new System.Drawing.Point(36, 655);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(154, 44);
+            this.guna2Button1.Size = new System.Drawing.Size(180, 54);
             this.guna2Button1.TabIndex = 13;
             this.guna2Button1.Text = "خروج";
             this.guna2Button1.UseTransparentBackground = true;
@@ -503,10 +540,11 @@
             this.bunifuLabel1.CursorType = null;
             this.bunifuLabel1.Font = new System.Drawing.Font("Colonna MT", 38F);
             this.bunifuLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(218)))), ((int)(((byte)(230)))));
-            this.bunifuLabel1.Location = new System.Drawing.Point(31, 60);
+            this.bunifuLabel1.Location = new System.Drawing.Point(36, 74);
+            this.bunifuLabel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(155, 54);
+            this.bunifuLabel1.Size = new System.Drawing.Size(190, 67);
             this.bunifuLabel1.TabIndex = 12;
             this.bunifuLabel1.Text = "AS Soft";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -518,9 +556,9 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Mj_King 1", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label6.Location = new System.Drawing.Point(36, 136);
+            this.label6.Location = new System.Drawing.Point(42, 167);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(149, 17);
+            this.label6.Size = new System.Drawing.Size(198, 21);
             this.label6.TabIndex = 9;
             this.label6.Text = "ـــــــــــــــــــــــــــــــــــــــــــــــ";
             // 
@@ -530,7 +568,7 @@
             this.btnReport.AutoRoundedCorners = true;
             this.btnReport.BackColor = System.Drawing.Color.Transparent;
             this.btnReport.BorderColor = System.Drawing.Color.Transparent;
-            this.btnReport.BorderRadius = 19;
+            this.btnReport.BorderRadius = 23;
             this.btnReport.BorderThickness = 1;
             this.btnReport.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnReport.CheckedState.BorderColor = System.Drawing.Color.Transparent;
@@ -556,10 +594,11 @@
             this.btnReport.Image = global::ProjectSystem.Properties.Resources.reportDark;
             this.btnReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnReport.IndicateFocus = true;
-            this.btnReport.Location = new System.Drawing.Point(-12, 448);
+            this.btnReport.Location = new System.Drawing.Point(-14, 551);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReport.Name = "btnReport";
             this.btnReport.ShadowDecoration.Parent = this.btnReport;
-            this.btnReport.Size = new System.Drawing.Size(180, 40);
+            this.btnReport.Size = new System.Drawing.Size(210, 49);
             this.btnReport.TabIndex = 3;
             this.btnReport.Text = "التقارير";
             this.btnReport.UseTransparentBackground = true;
@@ -571,7 +610,7 @@
             this.btnBill.AutoRoundedCorners = true;
             this.btnBill.BackColor = System.Drawing.Color.Transparent;
             this.btnBill.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBill.BorderRadius = 19;
+            this.btnBill.BorderRadius = 23;
             this.btnBill.BorderThickness = 1;
             this.btnBill.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnBill.CheckedState.BorderColor = System.Drawing.Color.Transparent;
@@ -598,10 +637,11 @@
             this.btnBill.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnBill.ImageSize = new System.Drawing.Size(22, 23);
             this.btnBill.IndicateFocus = true;
-            this.btnBill.Location = new System.Drawing.Point(-12, 402);
+            this.btnBill.Location = new System.Drawing.Point(-14, 495);
+            this.btnBill.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBill.Name = "btnBill";
             this.btnBill.ShadowDecoration.Parent = this.btnBill;
-            this.btnBill.Size = new System.Drawing.Size(180, 40);
+            this.btnBill.Size = new System.Drawing.Size(210, 49);
             this.btnBill.TabIndex = 3;
             this.btnBill.Text = "الفواتير";
             this.btnBill.UseTransparentBackground = true;
@@ -613,7 +653,7 @@
             this.btnRead.AutoRoundedCorners = true;
             this.btnRead.BackColor = System.Drawing.Color.Transparent;
             this.btnRead.BorderColor = System.Drawing.Color.Transparent;
-            this.btnRead.BorderRadius = 19;
+            this.btnRead.BorderRadius = 23;
             this.btnRead.BorderThickness = 1;
             this.btnRead.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnRead.CheckedState.BorderColor = System.Drawing.Color.Transparent;
@@ -640,10 +680,11 @@
             this.btnRead.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnRead.ImageSize = new System.Drawing.Size(24, 24);
             this.btnRead.IndicateFocus = true;
-            this.btnRead.Location = new System.Drawing.Point(-12, 356);
+            this.btnRead.Location = new System.Drawing.Point(-14, 438);
+            this.btnRead.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnRead.Name = "btnRead";
             this.btnRead.ShadowDecoration.Parent = this.btnRead;
-            this.btnRead.Size = new System.Drawing.Size(180, 40);
+            this.btnRead.Size = new System.Drawing.Size(210, 49);
             this.btnRead.TabIndex = 3;
             this.btnRead.Text = "القراءات";
             this.btnRead.UseTransparentBackground = true;
@@ -655,7 +696,7 @@
             this.btnCust.AutoRoundedCorners = true;
             this.btnCust.BackColor = System.Drawing.Color.Transparent;
             this.btnCust.BorderColor = System.Drawing.Color.Transparent;
-            this.btnCust.BorderRadius = 19;
+            this.btnCust.BorderRadius = 23;
             this.btnCust.BorderThickness = 1;
             this.btnCust.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnCust.CheckedState.BorderColor = System.Drawing.Color.Transparent;
@@ -682,10 +723,11 @@
             this.btnCust.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnCust.ImageSize = new System.Drawing.Size(22, 22);
             this.btnCust.IndicateFocus = true;
-            this.btnCust.Location = new System.Drawing.Point(-12, 310);
+            this.btnCust.Location = new System.Drawing.Point(-14, 382);
+            this.btnCust.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCust.Name = "btnCust";
             this.btnCust.ShadowDecoration.Parent = this.btnCust;
-            this.btnCust.Size = new System.Drawing.Size(180, 40);
+            this.btnCust.Size = new System.Drawing.Size(210, 49);
             this.btnCust.TabIndex = 3;
             this.btnCust.Text = "المشتركين";
             this.btnCust.UseTransparentBackground = true;
@@ -697,7 +739,7 @@
             this.btnLoc.AutoRoundedCorners = true;
             this.btnLoc.BackColor = System.Drawing.Color.Transparent;
             this.btnLoc.BorderColor = System.Drawing.Color.Transparent;
-            this.btnLoc.BorderRadius = 19;
+            this.btnLoc.BorderRadius = 23;
             this.btnLoc.BorderThickness = 1;
             this.btnLoc.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnLoc.CheckedState.BorderColor = System.Drawing.Color.Transparent;
@@ -724,10 +766,11 @@
             this.btnLoc.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnLoc.ImageSize = new System.Drawing.Size(22, 22);
             this.btnLoc.IndicateFocus = true;
-            this.btnLoc.Location = new System.Drawing.Point(-12, 264);
+            this.btnLoc.Location = new System.Drawing.Point(-14, 325);
+            this.btnLoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLoc.Name = "btnLoc";
             this.btnLoc.ShadowDecoration.Parent = this.btnLoc;
-            this.btnLoc.Size = new System.Drawing.Size(180, 40);
+            this.btnLoc.Size = new System.Drawing.Size(210, 49);
             this.btnLoc.TabIndex = 3;
             this.btnLoc.Text = "المناطق";
             this.btnLoc.UseTransparentBackground = true;
@@ -739,7 +782,7 @@
             this.btnMeter.AutoRoundedCorners = true;
             this.btnMeter.BackColor = System.Drawing.Color.Transparent;
             this.btnMeter.BorderColor = System.Drawing.Color.Transparent;
-            this.btnMeter.BorderRadius = 19;
+            this.btnMeter.BorderRadius = 23;
             this.btnMeter.BorderThickness = 1;
             this.btnMeter.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnMeter.CheckedState.BorderColor = System.Drawing.Color.Transparent;
@@ -766,10 +809,11 @@
             this.btnMeter.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnMeter.ImageSize = new System.Drawing.Size(24, 24);
             this.btnMeter.IndicateFocus = true;
-            this.btnMeter.Location = new System.Drawing.Point(-12, 218);
+            this.btnMeter.Location = new System.Drawing.Point(-14, 268);
+            this.btnMeter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMeter.Name = "btnMeter";
             this.btnMeter.ShadowDecoration.Parent = this.btnMeter;
-            this.btnMeter.Size = new System.Drawing.Size(180, 40);
+            this.btnMeter.Size = new System.Drawing.Size(210, 49);
             this.btnMeter.TabIndex = 3;
             this.btnMeter.Text = "العدادات";
             this.btnMeter.UseTransparentBackground = true;
@@ -781,7 +825,7 @@
             this.btnHome.AutoRoundedCorners = true;
             this.btnHome.BackColor = System.Drawing.Color.Transparent;
             this.btnHome.BorderColor = System.Drawing.Color.Transparent;
-            this.btnHome.BorderRadius = 19;
+            this.btnHome.BorderRadius = 23;
             this.btnHome.BorderThickness = 1;
             this.btnHome.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnHome.Checked = true;
@@ -807,10 +851,11 @@
             this.btnHome.Image = global::ProjectSystem.Properties.Resources.homesDark;
             this.btnHome.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnHome.IndicateFocus = true;
-            this.btnHome.Location = new System.Drawing.Point(-12, 172);
+            this.btnHome.Location = new System.Drawing.Point(-14, 212);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnHome.Name = "btnHome";
             this.btnHome.ShadowDecoration.Parent = this.btnHome;
-            this.btnHome.Size = new System.Drawing.Size(180, 40);
+            this.btnHome.Size = new System.Drawing.Size(210, 49);
             this.btnHome.TabIndex = 3;
             this.btnHome.Text = "الرئيسية";
             this.btnHome.UseTransparentBackground = true;
@@ -863,7 +908,8 @@
             this.btnLogo1ut.IdleIconLeftImage = null;
             this.btnLogo1ut.IdleIconRightImage = global::ProjectSystem.Properties.Resources.logout1;
             this.btnLogo1ut.IndicateFocus = true;
-            this.btnLogo1ut.Location = new System.Drawing.Point(39, 582);
+            this.btnLogo1ut.Location = new System.Drawing.Point(45, 716);
+            this.btnLogo1ut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogo1ut.Name = "btnLogo1ut";
             this.btnLogo1ut.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnLogo1ut.OnDisabledState.BorderRadius = 20;
@@ -897,7 +943,7 @@
             this.btnLogo1ut.OnPressedState.ForeColor = System.Drawing.Color.Transparent;
             this.btnLogo1ut.OnPressedState.IconLeftImage = null;
             this.btnLogo1ut.OnPressedState.IconRightImage = null;
-            this.btnLogo1ut.Size = new System.Drawing.Size(150, 39);
+            this.btnLogo1ut.Size = new System.Drawing.Size(175, 48);
             this.btnLogo1ut.TabIndex = 8;
             this.btnLogo1ut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnLogo1ut.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -905,30 +951,21 @@
             this.btnLogo1ut.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnLogo1ut.UseDefaultRadiusAndThickness = true;
             // 
-            // ucCustomer1
-            // 
-            this.ucCustomer1.BackColor = System.Drawing.Color.Transparent;
-            this.ucCustomer1.Location = new System.Drawing.Point(20, 21);
-            this.ucCustomer1.Name = "ucCustomer1";
-            this.ucCustomer1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ucCustomer1.Size = new System.Drawing.Size(1078, 595);
-            this.ucCustomer1.TabIndex = 2;
-            this.ucCustomer1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ucCustomer1_KeyPress);
-            this.ucCustomer1.MouseEnter += new System.EventHandler(this.ucCustomer1_MouseEnter);
-            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1366, 728);
+            this.ClientSize = new System.Drawing.Size(1594, 896);
             this.Controls.Add(this.pnlHome);
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.bunifuPanel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "q";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.Click += new System.EventHandler(this.FormMain_Click);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormMain_KeyPress);
@@ -997,5 +1034,6 @@
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private ucCustomer ucCustomer1;
+        private ucMeter ucMeter1;
     }
 }

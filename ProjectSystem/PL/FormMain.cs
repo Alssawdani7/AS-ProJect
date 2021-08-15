@@ -71,10 +71,15 @@ namespace ProjectSystem.PL
             MessageBox.Show("  x = " + e.X + "      y = " + e.Y);
         }
 
+        private void ucMeter1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void FormMain_Load(object sender, EventArgs e)
         {
-            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-            //this.WindowState = FormWindowState.Maximized;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }
